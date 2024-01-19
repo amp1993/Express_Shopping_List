@@ -5,7 +5,6 @@ const shoppingList = require("./fakeDB")
 
 // Render a list of shopping items.
 
-// **[{“name”: “popsicle”, “price”: 1.45}, {“name”:”cheerios”, “price”: 3.40}]**
 
 router.get('/items', function(req,res){
     res.json({shoppingList})
@@ -13,7 +12,6 @@ router.get('/items', function(req,res){
 
 
 // Add new item to shopping list
-// **{“name”:”popsicle”, “price”: 1.45} => {“added”: {“name”: “popsicle”, “price”: 1.45}}**
 
 
 router.post('/items', function(req, res){
@@ -26,7 +24,6 @@ router.post('/items', function(req, res){
 
 // Display a single item’s name and price.
 
-// **{“name”: “popsicle”, “price”: 1.45}**
 
 
 router.get('/items/:name', function(req, res){
@@ -39,7 +36,6 @@ router.get('/items/:name', function(req, res){
 
 
 // Modify a single item’s name and/or price.
-// **{“name”:”new popsicle”, “price”: 2.45} => {“updated”: {“name”: “new popsicle”, “price”: 2.45}}**
 
 router.patch('/items/:name', function(req, res){
     const findItem = shoppingList.find(shoppingList => shoppingList.name === req.params.name)
